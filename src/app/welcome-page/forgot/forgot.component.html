@@ -1,0 +1,10 @@
+<div class="forgot-wrap">
+    <h2 style="margin: 0;">Forgot Password</h2>
+    <form (ngSubmit)="onSend()">
+      <input id="email" [(ngModel)]="email" name="email" type="email" aria-label="Email" placeholder="Enter your email" required/>
+      <button class="welcome-page-button" type="submit">Send link</button>
+    </form>
+    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+    <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
+  </div>
+  

@@ -1,0 +1,15 @@
+<div class="welcome-container">
+    <div class="background">
+        <div class="circle circle1"></div>
+        <div class="circle circle2"></div>
+        <div class="circle circle3"></div>
+    </div>
+    <div class="content-wrap">
+        <h1 style="margin: 0;">CryptoOrganizer</h1>
+        <div class="content">
+            <router-outlet></router-outlet>
+        </div>
+        <a class="router-link-class" [routerLink]="router.url.includes('forgot-password') ? 'login' : 'forgot-password'">
+        {{ router.url.includes('forgot-password') ? 'Login' : 'Forgot Password?' }}</a>
+        </div>
+</div>
