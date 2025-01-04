@@ -1,33 +1,10 @@
 <div class="register-wrap">
     <h2 style="margin: 0;">Register Account</h2>
     <form (ngSubmit)="onRegister()">
-      <input
-        id="email"
-        [(ngModel)]="email"
-        name="email"
-        type="email"
-        aria-label="Email"
-        placeholder="Enter your email"
-        required
-      />
-      <input
-        id="password"
-        [(ngModel)]="password"
-        name="password"
-        type="password"
-        aria-label="Password"
-        placeholder="Enter your password"
-        required
-      />
-      <input
-        id="confirmPassword"
-        [(ngModel)]="confirmPassword"
-        name="confirmPassword"
-        type="password"
-        aria-label="Confirm Password"
-        placeholder="Confirm your password"
-        required
-      />
+      <input id="username" [(ngModel)]="registrationData.username" name="username"type="text" aria-label="Username" placeholder="Enter your username"required />
+      <input id="email" [(ngModel)]="registrationData.email" name="email" type="email"  aria-label="Email" placeholder="Enter your email" required />
+      <input id="password" [(ngModel)]="registrationData.password" name="password" type="password" aria-label="Password" placeholder="Enter your password" required/>
+      <input id="confirmPassword" [(ngModel)]="confirmPassword" name="confirmPassword" type="password" aria-label="Confirm Password" placeholder="Confirm your password" required/>
       <button class="welcome-page-button" type="submit">Register</button>
     </form>
     <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
