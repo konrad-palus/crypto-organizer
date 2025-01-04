@@ -1,8 +1,8 @@
 <div class="login-wrap">
     <h2 style="margin: 0;">Login</h2>
     <form (ngSubmit)="onLogin()">
-      <input id="email" [(ngModel)]="email" name="email" type="email" aria-label="Email" placeholder="Enter your email" required/>
-      <input id="password" [(ngModel)]="password" name="password" type="password" aria-label="Password" placeholder="Enter your password" required/>
+      <input id="login" [(ngModel)]="loginData.login" name="login" type="login" aria-label="Login" placeholder="Enter your login" required/>
+      <input id="password" [(ngModel)]="loginData.password" name="password" type="password" aria-label="Password" placeholder="Enter your password" required/>
       <button class="welcome-page-button" type="submit">Login</button>
     </form>
     <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
