@@ -4,6 +4,7 @@ import { LoginComponent } from './welcome-page/login/login.component';
 import { RegisterComponent } from './welcome-page/register/register.component';
 import { ForgotComponent } from './welcome-page/forgot/forgot.component';
 import { ConfirmEmailComponent } from './welcome-page/confirm-email/confirm-email.component';
+import { DashboardPageComponent } from './dashboard-page/dashboard-page.component';
 
 export const routes: Routes = [
   {
@@ -17,5 +18,6 @@ export const routes: Routes = [
       { path: 'confirm-email', component: ConfirmEmailComponent}
     ]
   },
+  { path: 'dashboard', component: DashboardPageComponent },
   { path: '', redirectTo: 'welcome', pathMatch: 'full' } 
 ];
