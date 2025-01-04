@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { LoginRequestModel } from './Models/LoginRequestModel ';
 import { ForgotPasswordRequestModel } from './Models/ForgotPasswordRequestModel ';
 import { RegistrationRequestModel } from './Models/RegistrationRequestModel ';
+import { ResetPasswordRequestModel } from './Models/ResetPasswordRequestModel';
 
 @Injectable({
   providedIn: 'root'
@@ -23,5 +24,10 @@ export class ApiConnectServiceService {
 
   forgotPassword(forgotPasswordRequest: ForgotPasswordRequestModel): Observable<any> {
     return this.http.post(`${this.apiBaseUrl}/ForgotPassword`, forgotPasswordRequest);
+  }
+
+  resetPassword(email: string, token: string, resetPasswordRequest: ResetPasswordRequestModel): Observable<any> {
+    const url = `${this.apiBaseUrl}/ResetPassword?email=${encodeURIComponent(email)}&token=${encodeURIComponent(token)}`;
+    return this.http.post(url, resetPasswordRequest);
   }
 }
