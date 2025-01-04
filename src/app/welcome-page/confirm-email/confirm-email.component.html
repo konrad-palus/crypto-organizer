@@ -1,0 +1,13 @@
+<div class="confirmation-container">
+    <div *ngIf="status === 'success'" class="success-message">
+      <h2>Success!</h2>
+      <p>{{ message }}</p>
+      <p>You can now <a style="color: white; text-decoration: underline; font-weight: 600; z-index: 1000;" routerLink="../login">log in</a> to your account.</p>
+    </div>
+    <div *ngIf="status === 'error'" class="error-message">
+      <h2>Error</h2>
+      <p>{{ message }}</p>
+      <p>If the problem persists, please contact support.</p>
+    </div>
+  </div>
+  
