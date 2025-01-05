@@ -58,11 +58,40 @@
 .navbar {
     height: 10%;
     width: 100%;
-    box-sizing: border-box;
-    padding: 2rem 0;
-    border-bottom: 1px white solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 .1px 15px white;
+    background-color: black;
+    z-index: 100;
 }
 
+.navbar-wrap {
+    width: 50%;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.navbutton {
+    width: 20%;
+    height: 100%;
+    background-color: transparent;
+    color: white;
+    border: none;
+}
+
+.navbutton:hover {
+    background-color: rgba(255, 255, 255, 0.329);
+}
+
+.logo {
+    width: 10%;
+    height: 100%;
+    background-color: red;
+}
 .main-content {
     height: 90%;
     width: 100%;
