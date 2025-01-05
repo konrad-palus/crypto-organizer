@@ -1,0 +1,71 @@
+.dashboard-wrap {
+    background-color: black;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+    overflow: hidden;
+}
+
+
+.dashboard-background {
+    width: 50%;
+    height: 100%;
+    position: relative;
+}
+
+.circle {
+    position: absolute;
+    width: 400px;
+    height: 400px; 
+    border-radius: 50%; 
+    z-index: 0; 
+    background: linear-gradient(45deg, red, rgb(4, 0, 255)); 
+    filter: blur(150px);
+}
+
+.circle.top-left {
+    top: -50px;
+    left: -100px;
+}
+
+.circle.top-right {
+    top: -50px;
+    right: -100px;
+}
+
+.circle.bottom-left {
+    bottom: -50px;
+    left: -100px;
+}
+
+.circle.bottom-right {
+    bottom: -50px;
+    right: -100px;
+}
+
+.dashboard-content {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, black, rgb(19, 19, 19));
+    position: absolute;
+    opacity: 1;
+    box-shadow: 0 2px 10px white;
+}
+
+.navbar {
+    height: 10%;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 2rem 0;
+    border-bottom: 1px white solid;
+}
+
+.main-content {
+    height: 90%;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 2rem;
+}
