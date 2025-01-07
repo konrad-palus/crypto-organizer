@@ -1,11 +1,11 @@
 <div class="dashboard-wrap">
     <div class="navbar">
         <div class="navbar-wrap">
-            <button class="navbutton">TOKENS</button>
-            <button class="navbutton">POOLS</button>
+            <button class="navbutton" routerLink="tokens">TOKENS</button>
+            <button class="navbutton" routerLink="pools">POOLS</button>
             <div class="logo">L</div>
             <button class="navbutton">NOTIFICATIONS</button>
-            <button class="navbutton">LOGOUT</button>
+            <button class="navbutton" routerLink="/welcome/login">LOGOUT</button>
         </div>
     </div>
     <div class="dashboard-background">
@@ -15,8 +15,9 @@
         <div class="circle bottom-right"></div>
 
         <div class="dashboard-content">
-
-            <div class="main-content"></div>
+            <div class="main-content">
+                <router-outlet></router-outlet>
+            </div>
         </div>
     </div>
 </div>
