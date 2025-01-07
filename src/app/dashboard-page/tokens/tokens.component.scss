@@ -1,0 +1,38 @@
+.tokens-wrap {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+    padding: 1rem;
+    color: white
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem 0;
+    text-decoration: none;
+}
+
+.token-info {
+    font-size: 1rem;
+}
+
+.favorite {
+    color: #999;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.favorite:hover {
+    color: gold;
+}

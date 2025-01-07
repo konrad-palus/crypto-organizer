@@ -1,0 +1,16 @@
+<div class="tokens-wrap">
+    <h2>Tokens List</h2>
+    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+    <ul *ngIf="tokens.length > 0; else noTokens">
+      <li *ngFor="let token of tokens">
+        <span class="token-info">
+          <strong>{{ token.tokenName }}</strong> ({{ token.ticker }})
+        </span>
+        <span class="favorite" (click)="toggleFavorite(token)">&#9733;</span>
+      </li>
+    </ul>
+    <ng-template #noTokens>
+      <p>No tokens available.</p>
+    </ng-template>
+  </div>
+  
