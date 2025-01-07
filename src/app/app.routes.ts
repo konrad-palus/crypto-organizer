@@ -6,6 +6,8 @@ import { ForgotComponent } from './welcome-page/forgot/forgot.component';
 import { ConfirmEmailComponent } from './welcome-page/confirm-email/confirm-email.component';
 import { DashboardPageComponent } from './dashboard-page/dashboard-page.component';
 import { ResetPasswordComponent } from './welcome-page/reset-password/reset-password.component';
+import { TokensComponent } from './dashboard-page/tokens/tokens.component';
+import { LiquidityPoolsComponent } from './dashboard-page/liquidity-pools/liquidity-pools.component';
 
 export const routes: Routes = [
   {
@@ -16,10 +18,18 @@ export const routes: Routes = [
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
       { path: 'forgot-password', component: ForgotComponent },
-      { path: 'confirm-email', component: ConfirmEmailComponent},
+      { path: 'confirm-email', component: ConfirmEmailComponent },
       { path: 'reset-password', component: ResetPasswordComponent },
     ]
   },
-  { path: 'dashboard', component: DashboardPageComponent },
-  { path: '', redirectTo: 'welcome', pathMatch: 'full' } 
+  {
+    path: 'dashboard',
+    component: DashboardPageComponent,
+    children: [
+      { path: 'tokens', component: TokensComponent },
+      { path: 'pools', component: LiquidityPoolsComponent },
+      { path: '', redirectTo: 'tokens', pathMatch: 'full' },
+    ],
+  },
+  { path: '', redirectTo: 'welcome', pathMatch: 'full' },
 ];
