@@ -16,4 +16,9 @@ export class DashboardPageComponent {
     localStorage.clear();
     this.router.navigate(['/welcome/login']);
   }
+
+  navigateTo(path: string): void {
+    console.log(`Navigating to: ${path}`);
+    this.router.navigate([`/dashboard/${path}`]);
+  }
 }
