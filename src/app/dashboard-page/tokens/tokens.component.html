@@ -6,11 +6,10 @@
         <span class="token-info">
           <strong>{{ token.tokenName }}</strong> ({{ token.ticker }})
         </span>
-        <span class="favorite" (click)="toggleFavorite(token)">&#9733;</span>
+        <span class="favorite" [style.color]="isFavorite(token) ? 'gold' : '#999'" (click)="toggleFavorite(token)">&#9733;</span>
       </li>
     </ul>
     <ng-template #noTokens>
       <p>No tokens available.</p>
     </ng-template>
-  </div>
-  
+</div>
