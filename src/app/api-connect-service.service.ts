@@ -7,6 +7,7 @@ import { RegistrationRequestModel } from './Models/RegistrationRequestModel ';
 import { ResetPasswordRequestModel } from './Models/ResetPasswordRequestModel';
 import { TokenCacheDto } from './Models/TokenCacheDto';
 import { LiquidityPool } from './Models/LiquidityPool';
+import { FavoriteTokenDto } from './Models/FavoriteTokenDto';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,9 @@ export class ApiConnectServiceService {
   constructor(private http: HttpClient) {}
 
   login(loginRequest: LoginRequestModel): Observable<any> {
-    return this.http.post(`${this.apiBaseUrl}/account/Login`, loginRequest);
+    return this.http.post(`${this.apiBaseUrl}/account/Login`, loginRequest, {
+      withCredentials: true,
+    });
   }
 
   register(registrationRequest: RegistrationRequestModel): Observable<any> {
@@ -40,5 +43,26 @@ export class ApiConnectServiceService {
 
   getLiquidityPools(): Observable<LiquidityPool[]> {
     return this.http.get<LiquidityPool[]>(`${this.apiBaseUrl}/cache/LiquidityPools`);
+  }
+
+  addFavoriteToken(tokenId: number): Observable<any> {
+    return this.http.post(
+      `${this.apiBaseUrl}/user/AddTokenToFavourites/${tokenId}`,
+      {}, { withCredentials: true }
+    );
+  }
+
+  removeFavoriteToken(tokenId: number): Observable<any> {
+    return this.http.delete(
+      `${this.apiBaseUrl}/user/DeleteTokenFromFavourites/${tokenId}`,
+      { withCredentials: true }
+    );
+  }
+
+  getFavoriteTokens(): Observable<FavoriteTokenDto[]> {
+    return this.http.get<FavoriteTokenDto[]>(
+      `${this.apiBaseUrl}/user/GetTokenFavouritesList`,
+      { withCredentials: true }
+    );
   }
 }
