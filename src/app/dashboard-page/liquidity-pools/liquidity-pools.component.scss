@@ -1,0 +1,47 @@
+.pools-wrap {
+    h2 {
+      text-align: center;
+    }
+  
+    .pool-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      border-bottom: 1px solid #dff7e5;
+      color: white;
+      .trade-link {
+        text-decoration: none;
+        color: #00ff6a;
+  
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+  
+  .scrollable-list {
+    max-height: 80vh; 
+    overflow-y: auto; 
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  
+    scrollbar-width: thin; 
+    scrollbar-color: #888 #f1f1f1;
+  
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+  
+    &::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 4px;
+    }
+  
+    &::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+  }
+  
