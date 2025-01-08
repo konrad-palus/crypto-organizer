@@ -1,13 +1,19 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard-page',
-  standalone: true,
-  imports: [RouterOutlet],
   templateUrl: './dashboard-page.component.html',
-  styleUrl: './dashboard-page.component.scss'
+  styleUrls: ['./dashboard-page.component.scss'],
+  imports: [RouterOutlet],
+  standalone: true
 })
 export class DashboardPageComponent {
 
+  constructor(private router: Router) {}
+
+  logout(): void {
+    localStorage.clear();
+    this.router.navigate(['/welcome/login']);
+  }
 }
