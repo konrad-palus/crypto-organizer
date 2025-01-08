@@ -90,8 +90,15 @@
 .logo {
     width: 10%;
     height: 100%;
-    background-color: red;
 }
+
+.logo img {
+    width: 100%;
+    height: auto; 
+    display: block;
+    margin: 0 auto;
+}
+
 .main-content {
     height: 100%;
     width: 100%;
