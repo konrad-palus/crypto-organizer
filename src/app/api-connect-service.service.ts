@@ -8,6 +8,7 @@ import { ResetPasswordRequestModel } from './Models/ResetPasswordRequestModel';
 import { TokenCacheDto } from './Models/TokenCacheDto';
 import { LiquidityPool } from './Models/LiquidityPool';
 import { FavoriteTokenDto } from './Models/FavoriteTokenDto';
+import { NotificationDTO } from './Models/NotificationDTO';
 
 @Injectable({
   providedIn: 'root'
@@ -64,5 +65,24 @@ export class ApiConnectServiceService {
       `${this.apiBaseUrl}/user/GetTokenFavouritesList`,
       { withCredentials: true }
     );
+  }
+
+  getNotifications(): Observable<NotificationDTO[]> {
+    return this.http.get<NotificationDTO[]>(
+      `${this.apiBaseUrl}/user/GetNotifications`,
+      { withCredentials: true }
+    );
+  }
+  
+  markNotificationAsRead(notificationId: number): Observable<any> {
+    return this.http.patch(
+      `${this.apiBaseUrl}/user/MarkNotificationAsRead/${notificationId}`,
+      {},
+      { withCredentials: true }
+    );
+  }
+
+  calculateAndSendNotifications(): Observable<any> {
+    return this.http.post(`${this.apiBaseUrl}/user/CalculateAndSendNotifications`, {}, { withCredentials: true });
   }
 }
