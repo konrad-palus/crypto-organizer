@@ -106,3 +106,58 @@
     width: 100%;
     box-sizing: border-box;
 }
+
+.notifications {
+    position: relative;
+    width: 20%;
+    .badge {
+      background-color: rgb(203, 69, 236);
+      color: white;
+      border-radius: 50%;
+      padding: 2px 6px;
+      font-size: 12px;
+      margin-left: 5px;
+    }
+  
+    .notifications-dropdown {
+      position: absolute;
+      top: 90px;
+      right: -70px;
+      background: #20232a;
+      color: white;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      width: 300px;
+      max-height: 300px;
+      overflow-y: auto;
+      z-index: 1000;
+  
+      .notification-item {
+        padding: 10px;
+        
+        button {
+          background: #61a7f1;
+          color: #fff;
+          border: none;
+          padding: 5px 10px;
+          width: 100%;
+          border-radius: 4px;
+          cursor: pointer;
+  
+          &:hover {
+            background: #0056b3;
+          }
+        }
+      }
+    }
+  }
+  
+  .notifications-list {
+    list-style: none; 
+    padding: 0;
+    margin: 0;
+  }
+
+  .notifications > * {
+    width: 100%;
+  }

@@ -1,25 +1,42 @@
 <div class="dashboard-wrap">
     <div class="navbar">
-        <div class="navbar-wrap">
-            <button class="navbutton" (click)="navigateTo('tokens')">TOKENS</button>
-            <button class="navbutton" (click)="navigateTo('pools')">POOLS</button>
-            <div class="logo">
-                <img src="assets/CryptoOrganizerLogo.png" alt="Crypto Organizer Logo" />
-            </div>
-            <button class="navbutton">NOTIFICATIONS</button>
-            <button class="navbutton" (click)="logout()">LOGOUT</button>
+      <div class="navbar-wrap">
+        <button class="navbutton" (click)="navigateTo('tokens')">TOKENS</button>
+        <button class="navbutton" (click)="navigateTo('pools')">POOLS</button>
+        <div class="logo">
+          <img src="assets/CryptoOrganizerLogo.png" alt="Crypto Organizer Logo" />
         </div>
+        <div class="notifications">
+          <button class="navbutton" (click)="toggleNotifications()">
+            NOTIFICATIONS <span *ngIf="unreadCount > 0" class="badge">{{ unreadCount }}</span>
+          </button>
+          <div *ngIf="isNotificationsOpen" class="notifications-dropdown">
+            <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+            <ul *ngIf="notifications.length > 0; else noNotifications" class="notifications-list">
+              <li *ngFor="let notification of notifications" class="notification-item">
+                <p [innerHTML]="notification.message"></p>
+                {{ notification.createdAt | date: 'dd.MM.yyyy HH:mm:ss' }}
+                <button (click)="markAsRead(notification.id)">Mark as Read</button>
+              </li>
+            </ul>
+            <ng-template #noNotifications>
+              <p style="text-align: center;">No notifications available.</p>
+            </ng-template>
+          </div>
+        </div>
+        <button class="navbutton" (click)="logout()">LOGOUT</button>
+      </div>
     </div>
     <div class="dashboard-background">
-        <div class="circle top-left"></div>
-        <div class="circle top-right"></div>
-        <div class="circle bottom-left"></div>
-        <div class="circle bottom-right"></div>
-
-        <div class="dashboard-content">
-            <div class="main-content">
-                <router-outlet></router-outlet>
-            </div>
+      <div class="circle top-left"></div>
+      <div class="circle top-right"></div>
+      <div class="circle bottom-left"></div>
+      <div class="circle bottom-right"></div>
+  
+      <div class="dashboard-content">
+        <div class="main-content">
+          <router-outlet></router-outlet>
         </div>
+      </div>
     </div>
-</div>
+  </div>  
