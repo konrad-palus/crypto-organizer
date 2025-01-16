@@ -23,18 +23,17 @@ export class LiquidityPoolsComponent implements OnInit {
   loadLiquidityPools(): void {
     this.apiService.getLiquidityPools().subscribe({
       next: (data) => {
-        const sortedPools = data.sort((a, b) => a.buyPrice - b.buyPrice);
-        const latestTimestamp = Math.max(...sortedPools.map((pool) => new Date(pool.lastUpdated).getTime()));
+        console.log('Raw API Data:', data);
 
-        const freshPools = sortedPools.filter((pool) => latestTimestamp - new Date(pool.lastUpdated).getTime() <= 60000);
-        const olderPools = sortedPools.filter((pool) =>latestTimestamp - new Date(pool.lastUpdated).getTime() > 60000);
+        this.liquidityPools = data;
 
-        this.liquidityPools = [...freshPools, ...olderPools];
+        console.log('Liquidity Pools:', this.liquidityPools);
         this.errorMessage = '';
       },
       error: (error) => {
         this.errorMessage =
           error.error?.message || 'Failed to load liquidity pools.';
+        console.error('API Error:', error);
       },
     });
   }

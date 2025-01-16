@@ -1,17 +1,16 @@
 <div class="pools-wrap">
-    <h2>Liquidity Pools</h2>
-    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
-    <ul *ngIf="liquidityPools.length > 0; else noPools" class="scrollable-list">
-        <li *ngFor="let pool of liquidityPools" class="pool-item">
-            <span class="pool-info">
-              <strong>{{ pool.exchangeName }}</strong> ({{ pool.tokenTicker }}) - ${{ pool.buyPrice | number: '1.2-2' }}
-              <small>(Updated: {{ pool.lastUpdated | date: 'short' }})</small>
-            </span>
-            <a *ngIf="pool.tradeUrl" [href]="pool.tradeUrl" target="_blank" class="trade-link">Trade</a>
-          </li>
-    </ul>
-    <ng-template #noPools>
-      <p>No liquidity pools available.</p>
-    </ng-template>
-  </div>
-  
+  <h2>Liquidity Pools</h2>
+  <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+  <ul *ngIf="liquidityPools.length > 0; else noPools" class="scrollable-list">
+    <li *ngFor="let pool of liquidityPools" class="pool-item">
+      <span class="pool-info">
+        <strong>{{ pool.exchangeName }}</strong> ({{ pool.tokenTicker }}) - ${{ pool.buyPrice | number: '1.2-2' }}
+        <small>(Updated: {{ pool.lastUpdated }})</small>
+      </span>
+      <a *ngIf="pool.tradeUrl" [href]="pool.tradeUrl" target="_blank" class="trade-link">Trade</a>
+    </li>
+  </ul>
+  <ng-template #noPools>
+    <p>No liquidity pools available.</p>
+  </ng-template>
+</div>

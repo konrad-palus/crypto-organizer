@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { LoginRequestModel } from './Models/LoginRequestModel ';
 import { ForgotPasswordRequestModel } from './Models/ForgotPasswordRequestModel ';
 import { RegistrationRequestModel } from './Models/RegistrationRequestModel ';
@@ -43,7 +43,9 @@ export class ApiConnectServiceService {
   }
 
   getLiquidityPools(): Observable<LiquidityPool[]> {
-    return this.http.get<LiquidityPool[]>(`${this.apiBaseUrl}/cache/LiquidityPools`);
+    return this.http.get<LiquidityPool[]>(`${this.apiBaseUrl}/cache/LiquidityPools`).pipe(
+      tap(data => console.log('API Response:', data))
+    );
   }
 
   addFavoriteToken(tokenId: number): Observable<any> {
